@@ -1,12 +1,12 @@
 //strings 和strconv 库学习
-package main
+package test4
 
 import (
 	"fmt"
 	"strings"
 )
 
-func main() {
+func test10() {
 	// strings.HasPrefix(s, prefix string) bool
 	// strings.HasSuffix(s, suffix string) bool
 	var str string = "this is an example of a string"

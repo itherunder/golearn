@@ -1,8 +1,8 @@
-package main
+package test6
 
 import "fmt"
 
-func main() {
+func test9() {
 	n := 0
 	Multiply(2, 3, &n)
 	fmt.Printf("2 * 3 = %d\n", n)

@@ -1,8 +1,8 @@
-package main
+package test6
 
 import "fmt"
 
-func main() {
+func test8() {
 	x2, x3 := getX2AndX3_2(2)
 	fmt.Printf("2 * 2 = %d, 2 * 3 = %d\n", x2, x3)
 }

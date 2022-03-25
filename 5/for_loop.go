@@ -1,8 +1,8 @@
-package main
+package test5
 
 import "fmt"
 
-func main() {
+func test4() {
 	for i := 1; i <= 15; i++ {
 		fmt.Println(i)
 	}

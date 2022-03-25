@@ -1,8 +1,8 @@
-package main
+package test6
 
 import "fmt"
 
-func main() {
+func test1() {
 	i1, _, f1 := ThreeValues()
 	fmt.Printf("The int: %d, the float: %f\n", i1, f1)
 }

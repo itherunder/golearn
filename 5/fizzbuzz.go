@@ -1,8 +1,8 @@
-package main
+package test5
 
 import "fmt"
 
-func main() {
+func test2() {
 	for i := 1; i <= 100; i++ {
 		switch {
 		case i%15 == 0:

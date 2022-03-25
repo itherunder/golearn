@@ -1,4 +1,4 @@
-package main
+package test6
 
 import (
 	"io"
@@ -12,6 +12,6 @@ func func1(s string) (n int, err error) {
 	return 7, io.EOF
 }
 
-func main() {
+func test2() {
 	func1("Go")
 }

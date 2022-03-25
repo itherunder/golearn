@@ -1,4 +1,4 @@
-package main
+package test6
 
 import "fmt"
 
@@ -18,6 +18,6 @@ func b() {
 	a()
 }
 
-func main() {
+func test3() {
 	b()
 }

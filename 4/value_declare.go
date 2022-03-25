@@ -1,4 +1,4 @@
-package main
+package test4
 
 import (
 	"fmt"
@@ -7,7 +7,7 @@ import (
 )
 
 //这些一般都是用来声明包级别的全局变量
-var n int = 64
+var n_ int = 64
 var (
 	HOME   = os.Getenv("HOME")
 	USER   = os.Getenv("USER")
@@ -16,7 +16,7 @@ var (
 
 var str string = "this is string"
 
-func main() {
+func tset15() {
 	a, b, c := 5, 7, "abc"
 	a, b = b, a
 	fmt.Println(a, b, c)

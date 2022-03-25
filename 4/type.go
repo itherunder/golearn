@@ -1,12 +1,12 @@
 //类型别名
-package main
+package test4
 
 import "fmt"
 
 type TZ int
 type Rope string
 
-func main() {
+func test13() {
 	var a, b TZ = 3, 4
 	c := a + b
 	var s string = "23333"

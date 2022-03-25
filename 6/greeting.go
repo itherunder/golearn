@@ -1,6 +1,6 @@
-package main
+package test6
 
-func main() {
+func test5() {
 	println("In main before calling greeting")
 	greeting()
 	println("In main after calling greeting")

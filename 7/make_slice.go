@@ -1,8 +1,8 @@
-package main
+package test7
 
 import "fmt"
 
-func main() {
+func test2() {
 	var slice1 = make([]int, 10)
 	for i := 0; i < len(slice1); i++ {
 		slice1[i] = 5 * i

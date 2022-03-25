@@ -1,18 +1,18 @@
-package main
+package test4
 
-var a = "G"
+var a__ = "G"
 
-func main() {
-	n() //"G"
-	m() //"O"
-	n() //"O"
+func test16() {
+	n__() //"G"
+	m_()  //"O"
+	n__() //"O"
 }
 
-func n() {
-	print(a)
+func n__() {
+	print(a__)
 }
 
-func m() {
-	a = "O"
-	print(a)
+func m_() {
+	a__ = "O"
+	print(a__)
 }

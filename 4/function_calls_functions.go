@@ -1,19 +1,19 @@
-package main
+package test4
 
-var a string
+var a_ string
 
-func main() {
-	a = "G"
-	print(a) //"G"
+func test4() {
+	a_ = "G"
+	print(a_) //"G"
 	f1()
 }
 
 func f1() {
-	a := "O"
-	print(a) //"O"
+	a_ := "O"
+	print(a_) //"O"
 	f2()
 }
 
 func f2() {
-	print(a) //"G"
+	print(a_) //"G"
 }

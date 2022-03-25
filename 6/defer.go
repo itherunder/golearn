@@ -1,8 +1,8 @@
-package main
+package test6
 
 import "fmt"
 
-func main() {
+func test4() {
 	function1()
 	f()
 }

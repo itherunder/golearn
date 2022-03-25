@@ -1,4 +1,4 @@
-package main
+package test4
 
 import "fmt"
 
@@ -8,7 +8,7 @@ type (
 	STR string
 )
 
-func main() {
+func test11() {
 	var i IZ = 4
 	fmt.Println(i)
 }

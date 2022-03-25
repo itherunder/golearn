@@ -1,8 +1,8 @@
-package main
+package test5
 
 import "fmt"
 
-func main() {
+func test6() {
 	var i int = 5
 	for {
 		i--

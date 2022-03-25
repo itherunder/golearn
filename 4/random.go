@@ -1,4 +1,4 @@
-package main
+package test4
 
 import (
 	"fmt"
@@ -6,7 +6,7 @@ import (
 	"time"
 )
 
-func main() {
+func test8() {
 	for i := 0; i < 10; i++ {
 		a := rand.Int()
 		fmt.Printf("%d / ", a)

@@ -1,4 +1,4 @@
-package main
+package test4
 
 const Pi = 3.14159265
 
@@ -47,6 +47,6 @@ func getNumber() int {
 	return 1
 }
 
-func main() {
+func test2() {
 
 }

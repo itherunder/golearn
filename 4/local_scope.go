@@ -1,13 +1,13 @@
-package main
+package test4
 
-var a = "G"
+var a___ = "G"
 
-func main() {
+func test7() {
 	n() //"G"
 	m() //"0"
 	n() //"G"
 }
 
-func n() { print(a) }
+func n() { print(a___) }
 
-func m() { a := "0"; print(a) }
+func m() { a___ := "0"; print(a___) }

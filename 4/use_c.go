@@ -1,4 +1,4 @@
-package main
+package test4
 
 //#include <stdlib.h>
 // import "C"

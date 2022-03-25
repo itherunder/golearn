@@ -1,0 +1,4 @@
+github.com/ThreeKing2018/gocolor v0.0.0-20190625094635-394e0e24c0d0 h1:fFoYXYxBFRE1exQedMZyFy4P1LHGJH1idubWhVuEJ0I=
+github.com/ThreeKing2018/gocolor v0.0.0-20190625094635-394e0e24c0d0/go.mod h1:dG3aFVtzqgcYBEhVjC139oGBy2Z7C92+iyXNaiViDNM=
+github.com/yezihack/colorlog v0.0.0-20190312024641-4717a40e9990 h1:62I1TD5lofiBbO3+oS5wVXBCB7hyncP4Ge0UsVKSag0=
+github.com/yezihack/colorlog v0.0.0-20190312024641-4717a40e9990/go.mod h1:oeujxvLndaRV//iyjkRt4o71gSTvyf+T4NOt0ZQSWc4=

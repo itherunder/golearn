@@ -1,4 +1,4 @@
-package main
+package test4
 
 import (
 	fm "fmt"    //别名
@@ -11,6 +11,6 @@ func init() {
 }
 
 // main is the enterency of a package
-func main() { //init函数会优先于main
+func test6() { //init函数会优先于main
 	fm.Println("hello, world")
 }

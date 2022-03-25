@@ -1,8 +1,8 @@
-package main
+package test6
 
 import "fmt"
 
-func main() {
+func test10() {
 	fmt.Printf("The sum of 1,3,5,7,1 is: %d\n", sum(1, 3, 5, 7, 1))
 }
 

@@ -1,8 +1,8 @@
-package main
+package test7
 
 import "fmt"
 
-func main() {
+func test1() {
 	fmt.Println(fib_slice(5))
 }
 

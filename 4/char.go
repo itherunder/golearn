@@ -1,12 +1,12 @@
 //字符类
-package main
+package test4
 
 import (
 	"fmt"
 	"unicode"
 )
 
-func main() {
+func test1() {
 	var ch int = '\u0041'
 	var ch2 int = '\u03B2'
 	var ch3 int = '\U00101234'

@@ -1,8 +1,8 @@
-package main
+package test6
 
 import "fmt"
 
-func main() {
+func test11() {
 	x := min(2, 3, 5, 2, 1, 0)
 	fmt.Printf("The minimum is %d\n", x)
 	slice := []int{3, 5, 6, 13, 5, 1}

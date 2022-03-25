@@ -1,8 +1,8 @@
-package main
+package test4
 
 import "fmt"
 
-const c = "C"
+const c_ = "C"
 
 var v int = 5
 
@@ -12,7 +12,7 @@ func init() {
 
 }
 
-func main() {
+func test5() {
 	var a int
 	Func1()
 	// ...

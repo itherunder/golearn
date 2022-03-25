@@ -1,8 +1,8 @@
-package main
+package test7
 
 import "fmt"
 
-func main() {
+func test4() {
 	var arr = [5]int{1, 2, 3, 4, 5}
 	fmt.Println(sum(arr[:]))
 }
