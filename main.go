@@ -1,7 +1,8 @@
 package main
 
-import "fmt"
+import "golearn/turingbot"
 
 func main() {
-	fmt.Println("hello world")
+	// fmt.Println("hello world")
+	turingbot.TuringBot()
 }
