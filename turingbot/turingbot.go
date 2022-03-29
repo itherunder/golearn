@@ -76,7 +76,8 @@ type Result struct {
 }
 
 type Response struct {
-	Intent Intent_ `json:"intent"`
+	Intent  Intent_  `json:"intent"`
+	Results []Result `json:"results"`
 }
 
 func TuringBot() {
@@ -104,25 +105,23 @@ func HandleError(err error) {
 // bot process the cmd input
 func Process(inputChan <-chan string) {
 	for {
-		select {
-		case input := <-inputChan:
-			// colorlog.Info("received from command: %s", input)
-			request := Request{
-				ReqType:    0,
-				Preception: Preception_{InputText: InputText_{Text: input}},
-				UserInfo:   UserInfo_{ApiKey: TuringApi, UserId: TuringUserId},
-			}
-			colorlog.Info("your message: %v", request)
-			requestBytes, err := json.Marshal(request)
-			HandleError(err)
-			res, err := http.Post(TuringUrl, PostContentType, bytes.NewBuffer([]byte(requestBytes)))
-			HandleError(err)
-			content, err := ioutil.ReadAll(res.Body)
-			HandleError(err)
-			var response Response
-			err = json.Unmarshal(content, &response)
-			HandleError(err)
-			colorlog.Info("Turing Bot: %v", response)
+		input := <-inputChan
+		// colorlog.Info("received from command: %s", input)
+		request := Request{
+			ReqType:    0,
+			Preception: Preception_{InputText: InputText_{Text: input}},
+			UserInfo:   UserInfo_{ApiKey: TuringApi, UserId: TuringUserId},
 		}
+		colorlog.Info("your message: %v", request)
+		requestBytes, err := json.Marshal(request)
+		HandleError(err)
+		res, err := http.Post(TuringUrl, PostContentType, bytes.NewBuffer([]byte(requestBytes)))
+		HandleError(err)
+		content, err := ioutil.ReadAll(res.Body)
+		HandleError(err)
+		var response Response
+		err = json.Unmarshal(content, &response)
+		HandleError(err)
+		colorlog.Info("Turing Bot: %v", response)
 	}
 }
