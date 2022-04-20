@@ -50,3 +50,31 @@ func TestStructFunc(t *testing.T) {
 	f2 := a.Name
 	f2()
 }
+
+// anonymous struct, the field name is the type name, so only one type one struct
+type Temp struct {
+	string
+	int
+}
+
+type Wheel struct {
+	Temp
+	Shape string
+}
+
+type Car struct {
+	Wheel     // embedded struct
+	Name, Typ string
+}
+
+func TestEmbeddedStruct(t *testing.T) {
+	car := Car{
+		Wheel: Wheel{
+			Temp:  Temp{"temp", 1},
+			Shape: "circle",
+		},
+		Typ:  "Sport",
+		Name: "BMW",
+	}
+	colorlog.Info("car.Name: %v", car.Name)
+}
