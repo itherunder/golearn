@@ -8,6 +8,38 @@ import (
 	"github.com/yezihack/colorlog"
 )
 
+type Tank interface {
+	Walk()
+	Fire()
+}
+
+type Plane interface {
+	Fly()
+}
+
+type PlaneTank interface {
+	Tank
+	Plane
+}
+
+type Printer interface {
+	Print(interface{})
+}
+
+type FuncCaller func(p interface{})
+
+func (funcCaller FuncCaller) Print(p interface{}) {
+	funcCaller(p)
+}
+
+func TestPrinter(t *testing.T) {
+	var printer Printer
+	printer = FuncCaller(func(p interface{}) {
+		colorlog.Info("%v", p)
+	})
+	printer.Print("liaozhou is itherunder.eth")
+}
+
 func TestInterface(t *testing.T) {
 	var e interface{}
 	f, err := os.Open("./test.txt")
