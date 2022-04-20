@@ -40,6 +40,35 @@ func TestPrinter(t *testing.T) {
 	printer.Print("liaozhou is itherunder.eth")
 }
 
+type Cat interface {
+	CatchMouse()
+}
+
+type Dog interface {
+	Bark()
+}
+
+type CatDog struct {
+	Name string
+}
+
+func (catDog *CatDog) CatchMouse() {
+	colorlog.Info("%v caught mouse!", catDog.Name)
+}
+
+func (catDog *CatDog) Bark() {
+	colorlog.Info("%v bark!", catDog.Name)
+}
+
+func TestCatDog(t *testing.T) {
+	catDog := CatDog{"itherunder"}
+	var cat Cat = &catDog
+	cat.CatchMouse()
+
+	var dog Dog = &catDog
+	dog.Bark()
+}
+
 func TestInterface(t *testing.T) {
 	var e interface{}
 	f, err := os.Open("./test.txt")
