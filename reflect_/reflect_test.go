@@ -64,3 +64,9 @@ func TestReflect(t *testing.T) {
 		sayHelloMethod.Type,
 		sayHelloMethod.Func.Kind())
 }
+
+func TestValueOf(t *testing.T) {
+	name := "itherunder"
+	valueOfName := reflect.ValueOf(name)
+	colorlog.Info("valueOfName is %v, kind is %v, name is %v", valueOfName, valueOfName.Kind(), valueOfName.Interface())
+}
