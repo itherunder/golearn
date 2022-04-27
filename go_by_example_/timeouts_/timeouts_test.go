@@ -30,8 +30,8 @@ func TestTimeout(t *testing.T) {
 	}()
 	
 	select {
-	case msg1 := <- ch1:
-		colorlog.Info("received msg2 %v", msg1)
+	case msg2 := <- ch2:
+		colorlog.Info("received msg2 %v", msg2)
 	case t := <- time.After(3 * time.Second):
 		colorlog.Info("msg2 timeout %v", t)
 	}
