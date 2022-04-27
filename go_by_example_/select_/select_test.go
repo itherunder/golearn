@@ -7,7 +7,7 @@ import (
 	"github.com/yezihack/colorlog"
 )
 
-func main() {
+func TestSelect(t *testing.T) {
 	ch1 := make(chan string, 1)
 	ch2 := make(chan string, 1)
 	
