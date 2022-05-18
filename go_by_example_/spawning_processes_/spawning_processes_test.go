@@ -30,7 +30,9 @@ func TestSpawningProcesses(t *testing.T) {
 	fmt.Println("> grep hello")
 	fmt.Println(string(grepBytes))
 
-	lsCmd := exec.Command("ls")
+	// lsCmd := exec.Command("ls", "-a", "-l", "-h")
+	// or use the short version:
+	lsCmd := exec.Command("bash", "-c", "ls -a -l -h")
 	lsOut, err := lsCmd.Output()
 	if err != nil {
 		panic(err)
