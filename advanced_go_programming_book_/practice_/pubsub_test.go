@@ -1,4 +1,4 @@
-package ch1_6
+package practice_
 
 import (
 	"fmt"
@@ -9,8 +9,8 @@ import (
 )
 
 type (
-	subscriber chan interface{}         // channel of interface{}
-	topicFunc  func(v interface{}) bool // filter
+	subscriber chan interface{}
+	topicFunc  func(v interface{}) bool
 )
 
 type Publisher struct {
@@ -22,19 +22,17 @@ type Publisher struct {
 
 func NewPublisher(publishTimeout time.Duration, buffer int) *Publisher {
 	return &Publisher{
-		buffer:      buffer,
 		timeout:     publishTimeout,
+		buffer:      buffer,
 		subscribers: make(map[subscriber]topicFunc),
 	}
 }
 
-// new type of subscriber, subscribe all topics
-func (p *Publisher) Subscribe() chan interface{} {
+func (p *Publisher) Subscribe() subscriber {
 	return p.SubscribeTopic(nil)
 }
 
-// new type of subscriber, subscribe some topics
-func (p *Publisher) SubscribeTopic(topic topicFunc) chan interface{} {
+func (p *Publisher) SubscribeTopic(topic topicFunc) subscriber {
 	p.m.Lock()
 	defer p.m.Unlock()
 	ch := make(chan interface{}, p.buffer)
@@ -42,15 +40,13 @@ func (p *Publisher) SubscribeTopic(topic topicFunc) chan interface{} {
 	return ch
 }
 
-// unsubscribe a subscriber
-func (p *Publisher) Evict(sub chan interface{}) {
+func (p *Publisher) Evict(sub subscriber) {
 	p.m.Lock()
 	defer p.m.Unlock()
 	delete(p.subscribers, sub)
 	close(sub)
 }
 
-// publish a topic
 func (p *Publisher) Publish(v interface{}) {
 	p.m.RLock()
 	defer p.m.RUnlock()
@@ -74,10 +70,7 @@ func (p *Publisher) Close() {
 	}
 }
 
-// send topic, with a timeout
-func (p *Publisher) sendTopic(
-	sub subscriber, topic topicFunc, v interface{}, wg *sync.WaitGroup,
-) {
+func (p *Publisher) sendTopic(sub subscriber, topic topicFunc, v interface{}, wg *sync.WaitGroup) {
 	defer wg.Done()
 	if topic != nil && !topic(v) {
 		return
