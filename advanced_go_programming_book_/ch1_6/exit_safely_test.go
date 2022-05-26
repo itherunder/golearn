@@ -2,6 +2,7 @@ package ch1_6
 
 import (
 	"fmt"
+	"sync"
 	"testing"
 	"time"
 )
@@ -26,4 +27,30 @@ func TestExitSafely(t *testing.T) {
 	}
 
 	time.Sleep(time.Second)
+}
+
+func worker1(wg *sync.WaitGroup, ch chan bool) {
+	defer wg.Done()
+	for {
+		select {
+		default:
+			fmt.Println("hello")
+		case <-ch:
+			return
+		}
+	}
+}
+
+func TestExitSafely1(t *testing.T) {
+	ch := make(chan bool)
+	defer close(ch)
+
+	var wg sync.WaitGroup
+	for i := 0; i < 10; i++ {
+		wg.Add(1)
+		go worker1(&wg, ch)
+	}
+
+	time.Sleep(time.Second)
+	wg.Wait()
 }
