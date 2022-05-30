@@ -4,7 +4,6 @@ import (
 	"net"
 	"net/rpc"
 	"testing"
-	"time"
 
 	"github.com/yezihack/colorlog"
 )
@@ -32,16 +31,26 @@ func TestNormalizedRpcHelloWorld(t *testing.T) {
 	}
 	colorlog.Info("Listening...")
 
-	conn, err := listener.Accept()
-	if err != nil {
-		colorlog.Error("Accept error: %v", err)
+	for {
+		conn, err := listener.Accept()
+		if err != nil {
+			colorlog.Error("Accept error: %v", err)
+		}
+
+		colorlog.Info("Accepted: %+v", conn)
+		go rpc.ServeConn(conn)
 	}
-	defer conn.Close()
 
-	colorlog.Info("Accepted: %+v", conn)
+	// conn, err := listener.Accept()
+	// if err != nil {
+	// 	colorlog.Error("Accept error: %v", err)
+	// }
+	// defer conn.Close()
 
-	rpc.ServeConn(conn)
-	time.Sleep(20 * time.Second)
+	// colorlog.Info("Accepted: %+v", conn)
+
+	// rpc.ServeConn(conn)
+	// time.Sleep(20 * time.Second)
 }
 
 // normalized client
