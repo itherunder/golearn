@@ -1,8 +1,8 @@
 syntax = "proto3";
 
-option go_package="./;hello";
+option go_package="./;ch4_2";
 package main;
 
 message string {
-    string vlaue = 1;
+    string value = 1;
 }
