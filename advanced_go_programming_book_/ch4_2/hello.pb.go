@@ -9,7 +9,7 @@ import (
 	math "math"
 )
 
-// TODO: import code
+import "net/rpc"
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ = proto.Marshal
@@ -79,4 +79,32 @@ var fileDescriptor_61ef911816e0a8ce = []byte{
 	0x88, 0x4f, 0x58, 0x7c, 0x00, 0x00, 0x00,
 }
 
-// TODO: service code, Name = HelloService
+type HelloServiceInterface interface {
+	Hello(*String, *String) error
+}
+
+func RegisterHelloService(srv *rpc.Server, x HelloServiceInterface) error {
+	if err := srv.RegisterName("HelloService", x); err != nil {
+		return err
+	}
+	return nil
+}
+
+type HelloServiceClient struct {
+	*rpc.Client
+}
+
+var _ HelloServiceInterface = (*HelloServiceClient)(nil)
+
+func DialHelloService(network, address string) (*HelloServiceClient, error) {
+	c, err := rpc.Dial(network, address)
+	if err != nil {
+		return nil, err
+	}
+	return &HelloServiceClient{Client: c}, nil
+}
+func (p *HelloServiceClient) Hello(
+	in *String, out *String,
+) error {
+	return p.Client.Call("HelloService.Hello", in, out)
+}
